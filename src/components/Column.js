@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Task from "./Task";
+import TaskList from "./TaskList";
 
 const Container = styled.div`
   margin: 8px;
@@ -11,19 +11,11 @@ const Title = styled.h3`
   padding: 8px;
 `;
 
-const TaskList = styled.div`
-  padding: 8px;
-`;
-
 export default function Column({ column, tasks }) {
   return (
     <Container>
       <Title>{column.title}</Title>
-      <TaskList>
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
-      </TaskList>
+      <TaskList tasks={tasks} />
     </Container>
   );
 }
