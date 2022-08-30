@@ -1,3 +1,4 @@
+import { Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import TaskList from "./TaskList";
 
@@ -15,7 +16,14 @@ export default function Column({ column, tasks }) {
   return (
     <Container>
       <Title>{column.title}</Title>
-      <TaskList tasks={tasks} />
+      <Droppable droppableId={column.id}>
+        {(provided) => (
+          <div ref={provided.innerRef} {...provided.droppableProps}>
+            <TaskList tasks={tasks} />
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </Container>
   );
 }

@@ -8,8 +8,8 @@ const Container = styled.div`
 export default function TaskList({ tasks }) {
   return (
     <Container>
-      {tasks.map((task) => (
-        <Task id={task.id} task={task} />
+      {tasks.map((task, index) => (
+        <Task key={task.id} task={task} index={index} />
       ))}
     </Container>
   );
